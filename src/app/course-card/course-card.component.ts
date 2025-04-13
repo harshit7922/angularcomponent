@@ -13,4 +13,8 @@ course: Course;
   constructor() { }
   ngOnInit(): void {
   }
+
+  onCourseCardButtonClick() {
+    console.log('Course card button clicked!');
+  }
 }

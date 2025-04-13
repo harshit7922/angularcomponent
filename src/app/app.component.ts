@@ -17,5 +17,7 @@ export class AppComponent {
     securityCourse =  COURSES[4];
     pwaCourse =  COURSES[5];
     advancedCourse =  COURSES[6];
-
+    onCardClick() {
+        console.log('Card clicked!');
+    }
 }
