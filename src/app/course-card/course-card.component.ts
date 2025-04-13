@@ -13,6 +13,10 @@ course: Course;
 @Input({required: true})
 index: number;
 
+@Input({required: true})
+cardIndex: number;
+
+
 @Output()
 couseSelected = new EventEmitter<Course>();
   constructor() { }

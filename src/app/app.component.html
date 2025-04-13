@@ -8,28 +8,23 @@
 
 <p>course-card works!</p>
 <div class="courses">
-    @for(course of courses; track trackCourse; 
-        let index = $index; 
-        let count = $count;
-        let first = $first;
-        let odd = $odd;
-        let even = $even; 
-        let last = $last;){
-
-        <h1>Count: {{count}}</h1>
         <course-card
-        [index] = "index" 
-        [class.is-first] = "first"
-        [class.is-last] = "last"
-        [class.is-odd] = "odd"
-        [class.is-even] = "even"
+            *ngFor="let course of courses; 
+            let i = index;  
+            first as isFirst; 
+            last as isLast;
+            even as isEven;
+            odd as isOdd"
+
         (couseSelected)="onCardClick($event)" 
-        [course] = "course" />
-    }
-    @empty {
-        <div class="empty">
-            <h2> No courses found</h2>
-        </div>   
-    }
+        [cardIndex]=" i +1"
+        [class.is-first]="isFirst"
+        [class.is-last]="isLast"
+        [class.is-even]="isEven"
+        [class.is-odd]="isOdd"
+        [course] = "course" 
+        
+        />
+    
 </div>
 
