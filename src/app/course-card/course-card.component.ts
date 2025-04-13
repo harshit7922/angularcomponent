@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgIf, NgClass } from '@angular/common';
 import { Course } from '../model/course';
 
 @Component({
@@ -7,7 +7,7 @@ import { Course } from '../model/course';
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
   standalone: true, // Ensure this is a standalone component
-  imports: [NgIf] // Add NgIf to imports
+  imports: [NgIf,NgClass] // Add NgIf to imports
 })
 export class CourseCardComponent implements OnInit {
 @Input({required: true})
@@ -33,5 +33,12 @@ couseSelected = new EventEmitter<Course>();
 
   isImageVisible(): boolean {
     return (this.course && this.course.iconUrl) ? true : false;
+  }
+
+  cardClasses(){
+    return {
+      'beginner': this.course.category == 'BEGINNER',
+      'course-card': true
+    }
   }
 }
