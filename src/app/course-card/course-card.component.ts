@@ -10,6 +10,9 @@ export class CourseCardComponent implements OnInit {
 @Input({required: true})
 course: Course;
 
+@Input({required: true})
+index: number;
+
 @Output()
 couseSelected = new EventEmitter<Course>();
   constructor() { }

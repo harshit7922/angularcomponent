@@ -8,9 +8,28 @@
 
 <p>course-card works!</p>
 <div class="courses">
-    @for(course of courses; track course.id)
-    {
-        <course-card (couseSelected)="onCardClick($event)" [course] = "course" />
+    @for(course of courses; track course.id; 
+        let index = $index; 
+        let count = $count;
+        let first = $first;
+        let odd = $odd;
+        let even = $even; 
+        let last = $last;){
+
+        <h1>Count: {{count}}</h1>
+        <course-card
+        [index] = "index" 
+        [class.is-first] = "first"
+        [class.is-last] = "last"
+        [class.is-odd] = "odd"
+        [class.is-even] = "even"
+        (couseSelected)="onCardClick($event)" 
+        [course] = "course" />
+    }
+    @empty {
+        <div class="empty">
+            <h2> No courses found</h2>
+        </div>   
     }
 </div>
 

@@ -11,7 +11,7 @@ import { Course } from './model/course';
 })
 export class AppComponent {
 
-    courses = COURSES;
+    courses = [...COURSES]; //COURSES; // [] //empty array for @empty example
    
     onCardClick(course:Course) {
         console.log('Card clicked!', course);
