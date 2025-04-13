@@ -1,30 +1,24 @@
 <div class="top-menu">
 
-    <img class="logo"
-         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+  <img class="logo"
+    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
-</div>
+  </div>
 
 
-<p>course-card works!</p>
-<div class="courses">
-        <course-card
-            *ngFor="let course of courses; 
-            let i = index;  
-            first as isFirst; 
-            last as isLast;
-            even as isEven;
-            odd as isOdd"
-
-        (couseSelected)="onCardClick($event)" 
+  <p>course-card works!</p>
+  <div class="courses">
+    @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {
+      <course-card
+        (couseSelected)="onCardClick($event)"
         [cardIndex]=" i +1"
         [class.is-first]="isFirst"
         [class.is-last]="isLast"
         [class.is-even]="isEven"
         [class.is-odd]="isOdd"
-        [course] = "course" 
-        
+        [course] = "course"
         />
-    
-</div>
+    }
+
+  </div>
 
