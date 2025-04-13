@@ -1,7 +1,6 @@
 
 
-    <div class="" *ngIf="course"
-    [ngClass]="cardClasses()">
+    <div class="course-card">
 
         <div class="course-title">
           {{cardIndex}}  {{course.description}}
@@ -17,5 +16,20 @@
         <div class="course-description">
             {{course.longDescription}}
         </div>
-<button (click)="onCourseCardButtonClick()"> view course</button>
+
+        <div class="course-categry">
+            @switch(course.category){
+                @case("BEGINNER"){
+                    <div class="category">Beginner</div>
+                }
+                @case("ADVANCED"){
+                    <div class="category">Advanced</div>
+                }
+                @default {
+                    <div class="category">Unknown</div>
+                }
+            }
+
+        </div>
+        <button (click)="onCourseCardButtonClick()"> view course</button>
     </div>
