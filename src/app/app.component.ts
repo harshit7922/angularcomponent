@@ -11,13 +11,8 @@ import { Course } from './model/course';
 })
 export class AppComponent {
 
-    coreCourses = COURSES[0];
-    rxJSCourse =  COURSES[1];
-    ngrxCourse =  COURSES[2];
-    angularCourse =  COURSES[3];
-    securityCourse =  COURSES[4];
-    pwaCourse =  COURSES[5];
-    advancedCourse =  COURSES[6];
+    courses = COURSES;
+   
     onCardClick(course:Course) {
         console.log('Card clicked!', course);
     }

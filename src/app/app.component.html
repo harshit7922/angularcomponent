@@ -8,8 +8,9 @@
 
 <p>course-card works!</p>
 <div class="courses">
-<course-card (couseSelected)="onCardClick($event)" [course] = "coreCourses"></course-card>
-<course-card  (couseSelected)="onCardClick($event)" [course] = "rxJSCourse"></course-card>
-<course-card (couseSelected)="onCardClick($event)"  [course] = "ngrxCourse"></course-card>
+    @for(course of courses; track course.id)
+    {
+        <course-card (couseSelected)="onCardClick($event)" [course] = "course" />
+    }
 </div>
 
