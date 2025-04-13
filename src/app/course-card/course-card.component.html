@@ -17,19 +17,12 @@
             {{course.longDescription}}
         </div>
 
-        <div class="course-categry">
-            @switch(course.category){
-                @case("BEGINNER"){
-                    <div class="category">Beginner</div>
-                }
-                @case("ADVANCED"){
-                    <div class="category">Advanced</div>
-                }
-                @default {
-                    <div class="category">Unknown</div>
-                }
-            }
-
+        <div class="course-categry" [ngSwitch] = "course.category">
+            <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>
+            <div class="category" *ngSwitchCase="'INTERMEDIATE'">Intermediate</div>
+            <div class="category" *ngSwitchCase="'ADVANCED'">Advanced</div>
+            <div class="category" *ngSwitchDefault>Unknown</div>
+           
         </div>
         <button (click)="onCourseCardButtonClick()"> view course</button>
     </div>
