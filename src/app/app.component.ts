@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
+import { Course } from './model/course';
 
 @Component({
     selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
     securityCourse =  COURSES[4];
     pwaCourse =  COURSES[5];
     advancedCourse =  COURSES[6];
-    onCardClick() {
-        console.log('Card clicked!');
+    onCardClick(course:Course) {
+        console.log('Card clicked!', course);
     }
 }

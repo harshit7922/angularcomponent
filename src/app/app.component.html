@@ -8,8 +8,8 @@
 
 <p>course-card works!</p>
 <div class="courses">
-<course-card (click)="onCardClick()" [course] = "coreCourses"></course-card>
-<course-card  (click)="onCardClick()" [course] = "rxJSCourse"></course-card>
-<course-card (click)="onCardClick()"  [course] = "ngrxCourse"></course-card>
+<course-card (couseSelected)="onCardClick($event)" [course] = "coreCourses"></course-card>
+<course-card  (couseSelected)="onCardClick($event)" [course] = "rxJSCourse"></course-card>
+<course-card (couseSelected)="onCardClick($event)"  [course] = "ngrxCourse"></course-card>
 </div>
 
