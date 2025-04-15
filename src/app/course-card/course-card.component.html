@@ -1,4 +1,7 @@
 <div> Start Date: {{startDate | date: 'MMM/dd/yyyy'}}</div>
+<div *ngFor =" let pair of course | keyvalue " >
+    <div> {{pair.key}} : {{pair.value}}</div>
+</div>
 <ng-container *ngIf="course;">
 
     <div class="course-card">
