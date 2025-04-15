@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgIf, NgClass, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { NgIf, NgClass, NgSwitch, NgSwitchCase, NgSwitchDefault, DatePipe,UpperCasePipe } from '@angular/common';
 import { Course } from '../model/course';
 
 @Component({
@@ -7,7 +7,7 @@ import { Course } from '../model/course';
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
   standalone: true, // Ensure this is a standalone component
-  imports: [NgIf,NgClass,NgSwitch,  NgSwitchCase, NgSwitchDefault] // Add NgIf to imports
+  imports: [NgIf,NgClass,NgSwitch,  NgSwitchCase, NgSwitchDefault, DatePipe, UpperCasePipe] // Add NgIf to imports
 })
 export class CourseCardComponent implements OnInit {
 @Input({required: true})
@@ -19,6 +19,7 @@ index: number;
 @Input({required: true})
 cardIndex: number;
 
+startDate: Date = new Date(); // Example start date
 
 @Output()
 couseSelected = new EventEmitter<Course>();

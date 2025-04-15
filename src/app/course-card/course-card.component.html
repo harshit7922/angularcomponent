@@ -1,10 +1,10 @@
-
+<div> Start Date: {{startDate | date: 'MMM/dd/yyyy'}}</div>
 <ng-container *ngIf="course;">
 
     <div class="course-card">
 
         <div class="course-title">
-          {{cardIndex}}  {{course.description}}
+          {{cardIndex}}  {{course.description | uppercase}}
         </div>
         
         <img width="300" alt="Angular Logo" *ngIf="isImageVisible(); else noImage"
