@@ -11,13 +11,17 @@ import { Course } from './model/course';
 })
 export class AppComponent {
 
-    courses = [...COURSES]; //COURSES; // [] //empty array for @empty example
+    courses = COURSES; // [] //empty array for @empty example
    
 
-    @ViewChild(CourseCardComponent)
+    @ViewChild('cardRef')
     card: CourseCardComponent;
+
+    @ViewChild('cardRef1')
+    card1: CourseCardComponent;
     onCardClick(course:Course) {
         console.log('Card clicked!', this.card);
+        console.log('Card clicked!', this.card1);
     }
 
     trackCourse(index: number, course: Course) {

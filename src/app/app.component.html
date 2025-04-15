@@ -8,8 +8,14 @@
 
   <p>course-card works!</p>
   <div class="courses">
+    <course-card  #cardRef1
+        (couseSelected)="onCardClick($event)"       
+        [course]="courses[2]"
+        [index]="0"
+        [cardIndex]="1"
+        />
     @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {
-      <course-card
+      <course-card  #cardRef
         (couseSelected)="onCardClick($event)"
         [cardIndex]=" i +1"
         [class.is-first]="isFirst"
