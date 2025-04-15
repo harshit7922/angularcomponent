@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { Course } from './model/course';
@@ -14,13 +14,16 @@ export class AppComponent {
     courses = COURSES; // [] //empty array for @empty example
    
 
-    @ViewChild('cardRef')
-    card: CourseCardComponent;
+    @ViewChildren(CourseCardComponent)
+    cards: QueryList<CourseCardComponent>;
 
     @ViewChild('cardRef1')
     card1: CourseCardComponent;
     onCardClick(course:Course) {
-        console.log('Card clicked!', this.card);
+        console.log('Card clicked!', this.cards.first);
+        console.log('Card clicked!', this.cards.last);
+        console.log('Card clicked!', this.cards.toArray());
+        console.log('Card clicked!', this.cards.length);
         console.log('Card clicked!', this.card1);
     }
 
