@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { Course } from './model/course';
@@ -13,8 +13,11 @@ export class AppComponent {
 
     courses = [...COURSES]; //COURSES; // [] //empty array for @empty example
    
+
+    @ViewChild(CourseCardComponent)
+    card: CourseCardComponent;
     onCardClick(course:Course) {
-        console.log('Card clicked!', course);
+        console.log('Card clicked!', this.card);
     }
 
     trackCourse(index: number, course: Course) {
