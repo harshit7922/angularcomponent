@@ -13,6 +13,7 @@
         <img width="300" alt="Angular Logo" *ngIf="isImageVisible(); else noImage"
              src="{{course.iconUrl}}">
              <ng-content select=".hello"></ng-content>
+             <ng-content select="p"></ng-content>
              <ng-template #noImage>
                 <h2>No Image Available!</h2>
              </ng-template>
