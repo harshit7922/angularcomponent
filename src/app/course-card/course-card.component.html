@@ -6,11 +6,7 @@
           {{cardIndex}}  {{course.description | uppercase}}
         </div>
         
-        <ng-template #blankImage>
 
-        <p class="warn"> {{course.description}} has No Image Available!</p>
-        <img src="/assets/empty-image.png" alt="No Image" width="300" height="200" class="empty-image">            
-        </ng-template>
 
              <ng-content select=".hello" *ngIf="course.iconUrl; else blankImage"></ng-content>
              <ng-content select="p"></ng-content>

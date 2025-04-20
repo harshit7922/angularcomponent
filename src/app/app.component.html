@@ -9,6 +9,14 @@
   <p>course-card works!</p>
   <div class="courses">    
     @for (course of courses; track course; let i = $index; let isFirst = $first; let isLast = $last; let isEven = $even; let isOdd = $odd) {
+      <ng-template #blankImage let-courseName="description">
+
+        <p class="warn"> {{courseName}} has No Image Available!</p>
+        <img src="/assets/empty-image.png" alt="No Image" width="300" height="200" class="empty-image">            
+        </ng-template>
+
+<div *ngTemplateOutlet="blankImage; context:{description: course.description}"></div>
+
       <course-card  #cardRef
         (couseSelected)="onCardClick($event)"
         [cardIndex]=" i +1"
