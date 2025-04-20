@@ -1,7 +1,3 @@
-<div> Start Date: {{startDate | date: 'MMM/dd/yyyy'}}</div>
-<div *ngFor =" let pair of course | keyvalue " >
-    <div> {{pair.key}} : {{pair.value}}</div>
-</div>
 <ng-container *ngIf="course;">
 
     <div class="course-card">
@@ -10,9 +6,13 @@
           {{cardIndex}}  {{course.description | uppercase}}
         </div>
         
-        <img width="300" alt="Angular Logo" *ngIf="isImageVisible(); else noImage"
-             src="{{course.iconUrl}}">
-             <ng-content select=".hello"></ng-content>
+        <ng-template #blankImage>
+
+        <p class="warn"> {{course.description}} has No Image Available!</p>
+        <img src="/assets/empty-image.png" alt="No Image" width="300" height="200" class="empty-image">            
+        </ng-template>
+
+             <ng-content select=".hello" *ngIf="course.iconUrl; else blankImage"></ng-content>
              <ng-content select="p"></ng-content>
              <ng-template #noImage>
                 <h2>No Image Available!</h2>
